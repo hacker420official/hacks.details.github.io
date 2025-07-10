@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Sana!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0; font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffe066 100%);
+      min-height: 100vh; color: #222; overflow-x: hidden;
+    }
+    .page { display: none; min-height: 100vh; align-items: center; justify-content: center; flex-direction: column; }
+    .active { display: flex !important; }
+    h1 { font-size: 3em; margin-bottom: 0.2em; color: #e94560; text-shadow: 0 2px 30px #ffe06688; }
+    .subtitle { font-size: 1.3em; color: #444; margin-bottom: 36px;}
+    .wish { background: #fffbe7; border-radius: 18px; padding: 22px 18px; margin: 28px auto; font-size: 1.22em; box-shadow: 0 2px 18px #e9456066; max-width: 700px; opacity: 0; transform: translateY(40px) scale(.98);}
+    .wish.show { animation: wishIn 1s cubic-bezier(.23,1,.32,1) forwards;}
+    @keyframes wishIn { to { opacity: 1; transform: translateY(0) scale(1);} }
+    /* Page 1 Cake */
+    .cake-container { margin: 40px auto 24px auto; display: flex; justify-content: center;}
+    .cake { width: 220px; height: 220px; position: relative;}
+    .cake-bottom { width: 220px; height: 80px; background: #ffe066; border-radius: 0 0 110px 110px / 0 0 48px 48px; position: absolute; bottom: 0; left: 0; box-shadow: 0 2px 40px #ffe06655; }
+    .cake-top { width: 220px; height: 120px; background: #fff8dc; border-radius: 110px 110px 70px 70px / 89px 89px 54px 54px; position: absolute; top: 44px; left: 0; box-shadow: 0 2px 28px #fff8dc66; z-index: 2;}
+    .cake-candle { position: absolute; left: 50%; top: 12px; width: 24px; height: 62px; margin-left: -12px; background: repeating-linear-gradient(90deg, #fff, #fff 6px, #e94560 6px, #e94560 12px); border-radius: 12px 12px 6px 6px; z-index: 3; box-shadow: 0 2px 6px #e9456066;}
+    .candle-flame { position: absolute; left: 50%; top: -23px; width: 28px; height: 40px; margin-left: -14px; background: radial-gradient(ellipse at center, #ffe066 70%, #ffaa00 100%, transparent 100%); border-radius: 50% 50% 60% 60%; opacity: 0.85; animation: flameFlicker 1s infinite alternate; z-index: 4; filter: blur(0.5px);}
+    @keyframes flameFlicker {0% { transform: scale(1) rotate(-2deg); opacity: 0.9;} 100% { transform: scale(1.11,1.22) rotate(2deg); opacity: 1;} }
+    .cake-cherry { position: absolute; width: 27px; height: 27px; border-radius: 50%; background: #e94560; top: 110px; left: 27px; box-shadow: 80px 0 #e94560, 155px 0 #e94560; z-index: 5; }
+    /* Buttons */
+    .btn { margin: 36px auto 0 auto; display: inline-block; background: linear-gradient(90deg, #e94560, #ffe066); color: #222; border: none; padding: 18px 52px; font-size: 1.45em; border-radius: 28px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 18px #e9456080; letter-spacing: 0.04em; transition: transform .16s, background .3s;}
+    .btn:hover { transform: scale(1.08) rotate(-2deg);}
+    .btn:active { transform: scale(0.98);}
+    .btn-anim { animation: btnPulse 1.3s infinite alternate;}
+    @keyframes btnPulse { to { box-shadow: 0 8px 36px #e9456060; } }
+    /* Page 2 Rectangle Photos */
+    .page2-photos { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      gap: 24px; 
+      margin: 48px 0;
+    }
+    .rect-photo { 
+      width: 320px; 
+      height: 200px; 
+      object-fit: cover; 
+      border-radius: 20px; 
+      box-shadow: 0 4px 40px #e9456066; 
+      border: 6px solid #fff; 
+      opacity: 0; 
+      transform: scale(.7);
+      transition: opacity 1.2s, transform 1.2s;
+    }
+    .rect-photo.show { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+    @media (max-width: 700px) {
+      .rect-photo { width: 90vw; height: 56vw; min-width: 150px; min-height: 80px; }
+      .page2-photos { flex-direction: column; gap: 15px;}
+    }
+    /* Page 3: Realistic Square Gift Box */
+    .real-gift-box-area {min-height: 260px;}
+    .real-gift-box {
+      position: relative; width: 200px; height: 200px; perspective: 800px; margin:0 auto;
+    }
+    .box-base {
+      width: 200px; height: 140px; background: #fff8dc; border: 4px solid #e94560;
+      border-radius: 14px; position: absolute; bottom: 0; left: 0;
+      box-shadow: 0 10px 36px #e9456066, 0 1px 0 #ffe066 inset;
+      z-index: 1;
+    }
+    .box-lid {
+      width: 200px; height: 60px; background: #ffe066; border: 4px solid #e94560;
+      border-radius: 14px 14px 28px 28px; position: absolute; top: 0; left: 0;
+      box-shadow: 0 6px 20px #e9456090;
+      z-index: 2;
+      transition: transform 1.2s cubic-bezier(.7,1.7,.5,1), box-shadow 1.2s;
+      transform-origin: bottom center;
+    }
+    .box-lid.open {
+      transform: rotateX(-95deg) translateY(-30px) scale(1.08);
+      box-shadow: 0 32px 44px #e9456070;
+    }
+    .ribbon-vertical {
+      position: absolute; left: 92px; top: 0; width: 16px; height: 200px;
+      background: #e94560; border-radius: 8px; z-index: 3;
+      box-shadow: 0 0 16px #e9456066;
+    }
+    .ribbon-horizontal {
+      position: absolute; left: 0; top: 92px; width: 200px; height: 16px;
+      background: #e94560; border-radius: 8px; z-index: 3;
+      box-shadow: 0 0 16px #e9456066;
+    }
+    .bow {
+      position: absolute; left: 80px; top: -30px; width: 40px; height: 40px; z-index:4;
+      background: none;
+    }
+    .bow:before, .bow:after {
+      content: ''; position: absolute; width: 36px; height: 22px; border-radius: 50% 50% 24px 24px;
+      background: #e94560; opacity: 0.9; top: 8px;
+    }
+    .bow:before { left: -22px; transform: rotate(-25deg);}
+    .bow:after { right: -22px; transform: rotate(25deg);}
+    .bow { border-radius: 50%; border: 4px solid #fff8dc; }
+    /* Confetti */
+    #confetti-container { position:fixed; left:0; top:0; width:100vw; height:100vh; pointer-events:none; z-index:20;}
+    .confetti {
+      position: absolute; width: 16px; height: 16px; border-radius: 4px;
+      opacity: 0.7; animation: confetti-fall 5s linear infinite;
+    }
+    @keyframes confetti-fall {
+      0% { transform: translateY(-40px) rotate(0deg);}
+      100% { transform: translateY(110vh) rotate(360deg);}
+    }
+    /* Floating Gifts */
+    #floating-gifts { position:fixed; right:0; bottom:0; width:100vw; height:100vh; pointer-events:none; z-index:19;}
+    .float-gift {
+      position: absolute; width: 38px; height: 38px; border-radius: 12px; background: #ffe066; border: 2px solid #e94560; left:0; bottom:-50px;
+      animation: floatGift 7s linear infinite;
+      box-shadow: 0 2px 12px #e9456066;
+    }
+    @keyframes floatGift {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(-120vh) scale(1.08);}
+    }
+    /* Wishes */
+    #wishes3 { max-width:900px; margin: 70px auto 60px auto; }
+    #wishes3 .wish { opacity: 0; transform: translateY(40px) scale(.98); background: #fffbe7; }
+    #wishes3 .wish.show { animation: wishIn 1s cubic-bezier(.23,1,.32,1) forwards;}
+    /* Reveal Animation */
+    .gift-reveal { text-align: center; margin-top: 40px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 1.2s, max-height 1.2s;}
+    .gift-reveal.show { opacity: 1; max-height: 800px;}
+    .center-photo { display: block; margin: 22px auto 10px auto; width: 220px; height: 220px; border-radius: 28px; border: 7px solid #fff8dc; object-fit: cover; box-shadow: 0 8px 48px #e9456099; opacity: 0; transform: scale(.8);}
+    .center-photo.show { animation: photoIn 1.2s cubic-bezier(.23,1,.32,1) forwards; opacity:1; transform:scale(1);}
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 2.1em; }
+      .cake,.cake-bottom,.cake-top {width:120px !important;}
+      .cake {height:120px;}
+      .cake-bottom {height:38px;}
+      .cake-top {height:60px;}
+      .cake-candle {height:32px; width:10px; margin-left:-5px;}
+      .candle-flame {width:12px; height:18px;}
+      .cake-cherry {width:14px;height:14px;top:55px;left:15px;}
+      .real-gift-box, .box-base, .box-lid {width:120px; }
+      .real-gift-box, .box-base, .box-lid {height: 120px;}
+      .box-base {height: 80px;}
+      .box-lid {height: 40px;}
+      .ribbon-vertical, .ribbon-horizontal {width: 10px; height: 120px;}
+      .ribbon-horizontal {width: 120px; height: 10px; top: 55px;}
+      .ribbon-vertical {left: 55px;}
+      .bow {left: 35px; width: 26px; height: 26px;}
+      #wishes3 {margin-top: 30px;}
+    }
+  </style>
+</head>
+<body>
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+    <h1>Happy Birthday, Sana!</h1>
+    <div class="subtitle">May your day shine as bright as your smile!</div>
+    <div class="cake-container">
+      <div class="cake">
+        <div class="cake-bottom"></div>
+        <div class="cake-top"></div>
+        <div class="cake-candle"><div class="candle-flame"></div></div>
+        <div class="cake-cherry"></div>
+      </div>
+    </div>
+    <div id="wishes1">
+      <div class="wish">🎈 May this year bring you endless joy and laughter, and may every moment be as sweet as cake!</div>
+      <div class="wish">🌟 Wishing you dreams that come true and adventures that never end.</div>
+      <div class="wish">💖 Your kindness and love make the world a better place. Stay amazing!</div>
+      <div class="wish">🍰 Here’s to more memories, more smiles, and more reasons to celebrate your wonderful self.</div>
+      <div class="wish">🎉 Happy Birthday, Sana! The best is yet to come.</div>
+    </div>
+    <button class="btn btn-anim" onclick="goToPage(2)">Next Page ➡</button>
+  </div>
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <h1>10 Birthday Wishes For You</h1>
+    <div class="subtitle">You deserve all the best in the world, today and always.</div>
+    <div id="wishes2">
+      <div class="wish">🌺 You light up every room you enter. May your year shine just as brightly!</div>
+      <div class="wish">🎵 May your days be filled with music, laughter, and the love of those who care.</div>
+      <div class="wish">🌈 Let happiness find you in every little thing you do.</div>
+      <div class="wish">🍦 Wishing you sweet surprises and magical moments, always!</div>
+      <div class="wish">💫 May your dreams soar higher than ever before.</div>
+      <div class="wish">🌻 Your kindness is a gift to all who know you. Thank you for being you!</div>
+      <div class="wish">🥳 Celebrate yourself, because you are truly special.</div>
+      <div class="wish">💌 Sending you hugs, smiles, and all the best wishes from the heart.</div>
+      <div class="wish">🌠 May every wish you make today come true tomorrow.</div>
+      <div class="wish">🦋 Never forget how loved you are. Happy birthday, bestie!</div>
+    </div>
+    <div class="page2-photos">
+      <img src="sana-photo1.jpg" class="rect-photo" id="photo1" alt="Sana 1">
+      <img src="sana-photo2.jpg" class="rect-photo" id="photo2" alt="Sana 2">
+    </div>
+    <button class="btn btn-anim" onclick="goToPage(3)">Final Surprise 🎁</button>
+  </div>
+  <!-- PAGE 3 -->
+  <div class="page" id="page3" style="background:linear-gradient(120deg,#fff8dc 0,#ffe066 100%); position:relative; min-height: 100vh; overflow-x:hidden;">
+    <!-- Animated Confetti -->
+    <div id="confetti-container"></div>
+    <!-- Animated Floating Gifts -->
+    <div id="floating-gifts"></div>
+    <h1 style="margin-top:50px; color:#e94560;">Your Special Birthday Gift!</h1>
+    <div class="subtitle">A box full of love, wishes, and surprises for you!</div>
+    <!-- Realistic Animated Gift Box -->
+    <div class="real-gift-box-area" style="display: flex; justify-content: center; margin: 36px 0;">
+      <div class="real-gift-box" id="realGiftBox">
+        <div class="box-lid" id="boxLid"></div>
+        <div class="box-base"></div>
+        <div class="ribbon-vertical"></div>
+        <div class="ribbon-horizontal"></div>
+        <div class="bow"></div>
+      </div>
+    </div>
+    <button class="btn btn-anim" id="openRealGiftBtn">Open Gift Box 🎁</button>
+    <!-- Surprise Photo and Wish -->
+    <div class="gift-reveal" id="realGiftReveal">
+      <img src="sana-photo3.jpg" class="center-photo show" alt="Sana 3" style="margin-top:36px;">
+      <div class="wish show" style="margin:30px auto; font-size:1.33em; max-width: 700px; background: #fffbe7;">
+        🌟 May this year surprise you with countless moments of joy and adventure. You are a true gift to everyone who knows you!
+      </div>
+    </div>
+    <!-- Long List of Animated Wishes -->
+    <div class="wishes-list" id="wishes3">
+      <div class="wish">💝 May your days be bright, your nights restful, and your heart always full of love and dreams.</div>
+      <div class="wish">🎈 Every year you grow more amazing. Keep being the wonderful, inspiring person you are.</div>
+      <div class="wish">🌺 May every wish you make today become a beautiful reality tomorrow.</div>
+      <div class="wish">🍫 Here’s to another year of sweet memories and beautiful moments!</div>
+      <div class="wish">🌠 May your path be lit with hope, your steps be guided by courage, and your heart overflow with happiness.</div>
+      <div class="wish">💖 On your birthday, remember: you are cherished, admired, and so very loved.</div>
+      <div class="wish">🥳 Celebrate yourself, because you deserve all the best life has to offer!</div>
+      <div class="wish">🌈 Your kindness creates rainbows in the lives of others—thank you for being you.</div>
+      <div class="wish">🎉 May laughter and love surround you not only today, but every day of your life.</div>
+      <div class="wish">🎁 Wishing you endless reasons to smile and a heart that’s always hopeful.</div>
+      <div class="wish">🦋 Happy Birthday, Sana! May your soul always soar free and your dreams know no bounds.</div>
+      <div class="wish">🌹 May you be blessed with good health, true friends, and memories you’ll cherish forever.</div>
+      <div class="wish">✨ Shine bright, dream big, and know that you are always enough.</div>
+      <div class="wish">💫 Sending you all the magic, love, and happiness in the universe today!</div>
+      <div class="wish">🍰 Another year, another adventure—let’s make it your best year yet!</div>
+    </div>
+  </div>
+  <script>
+    // Page Navigation
+    function goToPage(pageNum) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page'+pageNum).classList.add('active');
+      if(pageNum === 2) showWishes('wishes2');
+      if(pageNum === 3) resetPage3();
+    }
+    // Animate wishes one by one
+    function showWishes(id) {
+      let wishes = document.querySelectorAll('#'+id+' .wish');
+      wishes.forEach((el,i) => setTimeout(()=>el.classList.add('show'), 400 + i*380));
+      if(id==='wishes2') {
+        setTimeout(()=>{document.getElementById('photo1').classList.add('show');}, 1800);
+        setTimeout(()=>{document.getElementById('photo2').classList.add('show');}, 2300);
+      }
+    }
+    // Initial wishes for page1
+    showWishes('wishes1');
+
+    // Reset page 3 (hide all animations)
+    function resetPage3() {
+      // Hide/restart reveal
+      document.getElementById('realGiftReveal').classList.remove('show');
+      document.getElementById('boxLid').classList.remove('open');
+      document.getElementById('openRealGiftBtn').disabled = false;
+      document.getElementById('openRealGiftBtn').style.opacity = 1;
+      document.getElementById('openRealGiftBtn').textContent = "Open Gift Box 🎁";
+      // Remove confetti and floating gifts
+      document.getElementById('confetti-container').innerHTML = '';
+      document.getElementById('floating-gifts').innerHTML = '';
+      // Hide central photo
+      document.querySelector('#realGiftReveal .center-photo').classList.remove('show');
+      document.querySelector('#realGiftReveal .wish').classList.remove('show');
+      // Hide all wishes
+      document.querySelectorAll('#wishes3 .wish').forEach(el=>el.classList.remove('show'));
+    }
+
+    // PAGE 3: Only trigger animations on gift open
+    document.addEventListener('DOMContentLoaded', function(){
+      if(document.getElementById('openRealGiftBtn')){
+        document.getElementById('openRealGiftBtn').addEventListener('click', function(){
+          document.getElementById('boxLid').classList.add('open');
+          // Trigger confetti and floating gifts right away
+          animateConfetti();
+          animateFloatingGifts();
+          // Reveal photo and wishes after box animation
+          setTimeout(function(){
+            document.getElementById('realGiftReveal').classList.add('show');
+            showWishes3();
+            // Animate photo and main gift wish
+            setTimeout(()=>{document.querySelector('#realGiftReveal .center-photo').classList.add('show');}, 200);
+            setTimeout(()=>{document.querySelector('#realGiftReveal .wish').classList.add('show');}, 600);
+          }, 1100);
+          document.getElementById('openRealGiftBtn').disabled = true;
+          document.getElementById('openRealGiftBtn').style.opacity = 0.65;
+          document.getElementById('openRealGiftBtn').textContent = "Gift Opened 🎁";
+        });
+      }
+    });
+    // Animate the long wishes in sequence
+    function showWishes3(){
+      const wishes3 = document.querySelectorAll('#wishes3 .wish');
+      wishes3.forEach((el, i) => setTimeout(() => el.classList.add('show'), 400 + i * 300));
+    }
+    // Confetti
+    function animateConfetti(){
+      const cont = document.getElementById('confetti-container');
+      if(cont.children.length>0) return;
+      const colors = ["#e94560","#ffe066","#87ceeb","#ffb347","#fff8dc","#ff69b4","#dda0dd","#40e0d0"];
+      for(let i=0;i<30;i++){
+        let c=document.createElement('div');
+        c.className='confetti';
+        c.style.left=Math.random()*98+'vw';
+        c.style.animationDelay=(Math.random()*3)+'s';
+        c.style.background=colors[Math.floor(Math.random()*colors.length)];
+        c.style.width=c.style.height=(12+Math.random()*12)+'px';
+        cont.appendChild(c);
+      }
+    }
+    // Floating Gifts
+    function animateFloatingGifts(){
+      const area = document.getElementById('floating-gifts');
+      if(area.children.length>0) return;
+      const giftColors = ["#ffe066","#e94560","#87ceeb","#ffb347","#fff8dc"];
+      for(let i=0;i<12;i++){
+        let g=document.createElement('div');
+        g.className='float-gift';
+        g.style.left = (Math.random()*97)+'vw';
+        g.style.background = giftColors[Math.floor(Math.random()*giftColors.length)];
+        g.style.borderColor = "#e94560";
+        g.style.animationDuration = (5.5 + Math.random()*4)+'s';
+        g.style.animationDelay = (Math.random()*4)+'s';
+        area.appendChild(g);
+      }
+    }
+  </script>
+</body>
+</html>
