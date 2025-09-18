@@ -38,17 +38,74 @@
 <hr/>
 
 <!-- Video Section -->
-<section style="text-align:center; margin:40px auto; max-width:950px;">
-    <h3 style="font-size:28px; margin-bottom:20px; color:#222;">🎥 SKIN HACK + ESP + AIMBOT</h3>
-    <video controls loop 
-           style="max-width:750px; border-radius:15px; box-shadow:0 8px 22px rgba(0,0,0,0.25); transition:all 0.3s ease;"
-           onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 12px 26px rgba(0,0,0,0.35)';"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 22px rgba(0,0,0,0.25)';">
+<section class="video-section">
+    <h3>🎥 SKIN HACK + ESP + AIMBOT</h3>
+    <video controls loop>
         <source src="./funny.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <p style="margin-top:12px; color:#666; font-size:16px;">▶ Watch demo of hacks in action</p>
+    <p>▶ Watch demo of hacks in action</p>
 </section>
+
+<style>
+.video-section {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 950px;
+    padding: 0 15px;
+}
+
+.video-section h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.video-section video {
+    width: 100%;
+    max-width: 750px;
+    border-radius: 15px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.video-section video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+}
+
+.video-section p {
+    margin-top: 12px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 768px) {
+    .video-section h3 {
+        font-size: 22px;
+    }
+    .video-section p {
+        font-size: 14px;
+    }
+    .video-section {
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-section h3 {
+        font-size: 20px;
+    }
+    .video-section p {
+        font-size: 13px;
+    }
+    .video-section video {
+        border-radius: 10px;
+    }
+}
+</style>
+
 
 <hr/>
 
