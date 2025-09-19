@@ -4,7 +4,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HACKER420 OFFICIAL</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Navbar Base */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #111;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    /* Logo */
+    .logo {
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Menu */
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Links */
+    .menu li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Hover */
+    .menu li a:hover {
+      background: #ff5722;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(255,87,34,0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Active Page */
+    .menu li a.active {
+      background: #2196f3;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(33,150,243,0.5);
+    }
+
+    /* Hamburger Button */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #222;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 15px 0;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .menu li {
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Video Section */
+    .video-section {
+      text-align: center;
+      margin: 40px auto;
+      max-width: 950px;
+      padding: 0 15px;
+    }
+
+    .video-section h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .video-section video {
+      width: 100%;
+      max-width: 750px;
+      border-radius: 15px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+    }
+
+    .video-section video:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+    }
+
+    .video-section p {
+      margin-top: 12px;
+      color: #666;
+      font-size: 16px;
+    }
+
+    /* 📱 Mobile responsive */
+    @media (max-width: 768px) {
+      .video-section h3 {
+        font-size: 22px;
+      }
+      .video-section p {
+        font-size: 14px;
+      }
+      .video-section {
+        margin: 20px auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-section h3 {
+        font-size: 20px;
+      }
+      .video-section p {
+        font-size: 13px;
+      }
+      .video-section video {
+        border-radius: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -13,9 +162,12 @@
   <h3>WELCOME TO MY OFFICIAL PAGE 🚀</h3>
 </header>
 
-<nav>
-  <ul>
-    <li><a href="index.html">🏠 Home</a></li>
+<!-- ✅ Responsive Sticky Navbar -->
+<nav class="navbar">
+  <div class="logo">🔥 Hacker420</div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <ul class="menu" id="menu">
+    <li><a href="index.html" class="active">🏠 Home Page</a></li>
     <li><a href="available-hacks.html">✉ Available Hacks</a></li>
     <li><a href="community.html">🌐 Community</a></li>
     <li><a href="group.html">💬 Group</a></li>
@@ -24,210 +176,162 @@
     <li><a href="contact.html">📞 Contact Us</a></li>
   </ul>
 </nav>
+
 <!-- Intro Section -->
 <main style="text-align:center; margin:50px auto; padding:40px; max-width:900px; background:linear-gradient(135deg,#ff512f,#dd2476); color:white; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.3);">
-    <h2 style="font-size:32px; margin-bottom:15px; text-shadow:1px 1px 4px rgba(0,0,0,0.4);">
-        🔥 HACKER420 OFFICIAL INTRO 🔥
-    </h2>
-    <p style="font-size:20px; line-height:1.8;">
-        How are you <b style="color:yellow;">GUYS</b> doing? <br/>  
-        This website is made by <strong style="color:#00ffea;">HACKER420 OFFICIAL</strong>
-    </p>
+  <h2 style="font-size:32px; margin-bottom:15px; text-shadow:1px 1px 4px rgba(0,0,0,0.4);">
+      🔥 HACKER420 OFFICIAL INTRO 🔥
+  </h2>
+  <p style="font-size:20px; line-height:1.8;">
+      How are you <b style="color:yellow;">GUYS</b> doing? <br/>  
+      This website is made by <strong style="color:#00ffea;">HACKER420 OFFICIAL</strong>
+  </p>
 </main>
 
 <hr/>
 
 <!-- Video Section -->
 <section class="video-section">
-    <h3>🎥 SKIN HACK + ESP + AIMBOT</h3>
-    <video controls loop>
-        <source src="./funny.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <p>▶ Watch demo of hacks in action</p>
+  <h3>🎥 SKIN HACK + ESP + AIMBOT</h3>
+  <video controls loop>
+      <source src="./funny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+  <p>▶ Watch demo of hacks in action</p>
 </section>
-
-<style>
-.video-section {
-    text-align: center;
-    margin: 40px auto;
-    max-width: 950px;
-    padding: 0 15px;
-}
-
-.video-section h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #222;
-}
-
-.video-section video {
-    width: 100%;
-    max-width: 750px;
-    border-radius: 15px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
-    transition: all 0.3s ease;
-}
-
-.video-section video:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 26px rgba(0,0,0,0.35);
-}
-
-.video-section p {
-    margin-top: 12px;
-    color: #666;
-    font-size: 16px;
-}
-
-/* 📱 Mobile responsive */
-@media (max-width: 768px) {
-    .video-section h3 {
-        font-size: 22px;
-    }
-    .video-section p {
-        font-size: 14px;
-    }
-    .video-section {
-        margin: 20px auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .video-section h3 {
-        font-size: 20px;
-    }
-    .video-section p {
-        font-size: 13px;
-    }
-    .video-section video {
-        border-radius: 10px;
-    }
-}
-</style>
-
 
 <hr/>
 
 <!-- Hacks List -->
 <section style="text-align:center; margin:40px auto; max-width:850px; background:#ffffff; border-radius:15px; padding:35px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
-    <h2 style="color:#333; margin-bottom:25px; font-size:30px;">🔥 Popular Hacks</h2>
-    <ul style="list-style:none; padding:0; font-size:20px; line-height:2; color:#444;">
-        <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#e74c3c';" onmouseout="this.style.color='#444';">👁 ESP</li>
-        <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#27ae60';" onmouseout="this.style.color='#444';">🎯 Headshot</li>
-        <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#2980b9';" onmouseout="this.style.color='#444';">💥 Magic Bullet</li>
-        <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#8e44ad';" onmouseout="this.style.color='#444';">⚡ Lag Fix</li>
-        <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#d35400';" onmouseout="this.style.color='#444';">🤖 Aim Bot</li>
-        <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#16a085';" onmouseout="this.style.color='#444';">🔒 Aim Lock</li>
-        <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#2c3e50';" onmouseout="this.style.color='#444';">🎮 Auto Aim</li>
-    </ul>
+  <h2 style="color:#333; margin-bottom:25px; font-size:30px;">🔥 Popular Hacks</h2>
+  <ul style="list-style:none; padding:0; font-size:20px; line-height:2; color:#444;">
+      <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#e74c3c';" onmouseout="this.style.color='#444';">👁 ESP</li>
+      <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#27ae60';" onmouseout="this.style.color='#444';">🎯 Headshot</li>
+      <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#2980b9';" onmouseout="this.style.color='#444';">💥 Magic Bullet</li>
+      <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#8e44ad';" onmouseout="this.style.color='#444';">⚡ Lag Fix</li>
+      <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#d35400';" onmouseout="this.style.color='#444';">🤖 Aim Bot</li>
+      <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#16a085';" onmouseout="this.style.color='#444';">🔒 Aim Lock</li>
+      <li style="transition:0.3s; cursor:pointer;" onmouseover="this.style.color='#2c3e50';" onmouseout="this.style.color='#444';">🎮 Auto Aim</li>
+  </ul>
 </section>
 
 <hr/>
 
 <!-- Available Section -->
 <section style="text-align:center; margin:40px auto; max-width:850px; background:linear-gradient(135deg,#56ab2f,#a8e063); color:#fff; border-radius:15px; padding:40px; box-shadow:0 8px 22px rgba(0,0,0,0.3);">
-    <h2 style="margin-bottom:20px; font-size:30px;">✅ Available</h2>
-    <ol style="list-style-position:inside; font-size:20px; line-height:2;">
-       <!-- <li>🌀 Mode✖</li> -->
-        <li>⚙️ Config</li>
-        <li>📦 OBB</li>
-       <!-- <li>💉 Injector✖</li> -->
-        <li>🐱‍👤 Color Body</li>
-    </ol>
-    <p style="margin-top:15px; font-size:16px; color:#f0f0f0;">✔ Always updated & tested for smooth experience</p>
+  <h2 style="margin-bottom:20px; font-size:30px;">✅ Available</h2>
+  <ol style="list-style-position:inside; font-size:20px; line-height:2;">
+      <li>⚙️ Config</li>
+      <li>📦 OBB</li>
+      <li>🐱‍👤 Color Body</li>
+  </ol>
+  <p style="margin-top:15px; font-size:16px; color:#f0f0f0;">✔ Always updated & tested for smooth experience</p>
 </section>
 
 <hr/>
 
 <!-- Features Section -->
 <section style="text-align:center; margin:40px auto; max-width:950px; background:#f9f9f9; border-radius:15px; padding:40px; box-shadow:0 6px 20px rgba(0,0,0,0.15);">
-    <h2 style="color:#444; margin-bottom:30px; font-size:32px;">🌟 Features</h2>
-    
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; text-align:left;">
-        
-        <!-- Config -->
-        <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-            <h3 style="text-align:center;">⚙️ CONFIG</h3>
-            <ol style="margin:10px 0; padding-left:20px;">
-                <li>🤖 Aimbot</li>
-                <li>🔒 Aimlock</li>
-                <li>🎯 Headshot</li>
-                <li>💥 Magic Bullet</li>
-                <li>🎛 Less Recoil</li>
-                <li>⚡ No Lag</li>
-                <li>🎨 Skins</li>
-            </ol>
-        </div>
+  <h2 style="color:#444; margin-bottom:30px; font-size:32px;">🌟 Features</h2>
+  
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; text-align:left;">
+      
+      <!-- Config -->
+      <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+          <h3 style="text-align:center;">⚙️ CONFIG</h3>
+          <ol style="margin:10px 0; padding-left:20px;">
+              <li>🤖 Aimbot</li>
+              <li>🔒 Aimlock</li>
+              <li>🎯 Headshot</li>
+              <li>💥 Magic Bullet</li>
+              <li>🎛 Less Recoil</li>
+              <li>⚡ No Lag</li>
+              <li>🎨 Skins</li>
+          </ol>
+      </div>
 
-        <!-- Mode -->
-        <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-            <h3 style="text-align:center;">🌀 MODE</h3>
-            <ol style="margin:10px 0; padding-left:20px;">
-                <li>👁 ESP</li>
-                <li>🤖 Aim Bot</li>
-                <li>🔒 Aim Lock</li>
-                <li>💥 Magic Bullet</li>
-                <li>🚫 No Recoil</li>
-                <li>🎛 Less Recoil</li>
-                <li>🎯 Headshot</li>
-                <li>🎨 Skins</li>
-                <li>📱 iPad View</li>
-                <li>⚡ Speed</li>
-                <li>➕ etc</li>
-            </ol>
-        </div>
+      <!-- Mode -->
+      <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+          <h3 style="text-align:center;">🌀 MODE</h3>
+          <ol style="margin:10px 0; padding-left:20px;">
+              <li>👁 ESP</li>
+              <li>🤖 Aim Bot</li>
+              <li>🔒 Aim Lock</li>
+              <li>💥 Magic Bullet</li>
+              <li>🚫 No Recoil</li>
+              <li>🎛 Less Recoil</li>
+              <li>🎯 Headshot</li>
+              <li>🎨 Skins</li>
+              <li>📱 iPad View</li>
+              <li>⚡ Speed</li>
+              <li>➕ etc</li>
+          </ol>
+      </div>
 
-        <!-- OBB -->
-        <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-            <h3 style="text-align:center;">📦 OBB</h3>
-            <ol style="margin:10px 0; padding-left:20px;">
-                <li>🤖 Aimbot</li>
-                <li>💥 Magic Bullet</li>
-                <li>🐱‍🏍 Antenna</li>
-                <li>🚫 No Recoil</li>
-                <li>🙌 Full body headshot</li>
-                <li>💫 No Shake</li>
-                <li>⚡ Fast Movement</li>
-                <li>🎨 Skins</li>
-                <li>➕ etc</li>
-            </ol>
-        </div>
+      <!-- OBB -->
+      <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+          <h3 style="text-align:center;">📦 OBB</h3>
+          <ol style="margin:10px 0; padding-left:20px;">
+              <li>🤖 Aimbot</li>
+              <li>💥 Magic Bullet</li>
+              <li>🐱‍🏍 Antenna</li>
+              <li>🚫 No Recoil</li>
+              <li>🙌 Full body headshot</li>
+              <li>💫 No Shake</li>
+              <li>⚡ Fast Movement</li>
+              <li>🎨 Skins</li>
+              <li>➕ etc</li>
+          </ol>
+      </div>
 
-        <!-- Injector -->
-        <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
-            <h3 style="text-align:center;">💉 INJECTOR</h3>
-            <ol style="margin:10px 0; padding-left:20px;">
-                <li>👁 ESP</li>
-                <li>🤖 Aim Bot</li>
-                <li>🔒 Aim Lock</li>
-                <li>💥 Magic Bullet</li>
-                <li>🚫 No Recoil</li>
-                <li>🎛 Less Recoil</li>
-                <li>🎯 Headshot</li>
-                <li>🎨 Skins</li>
-                <li>📱 iPad View</li>
-                <li>⚡ Speed</li>
-                <li>➕ etc</li>
-            </ol>
-        </div>
-    </div>
+      <!-- Injector -->
+      <div style="background:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+          <h3 style="text-align:center;">💉 INJECTOR</h3>
+          <ol style="margin:10px 0; padding-left:20px;">
+              <li>👁 ESP</li>
+              <li>🤖 Aim Bot</li>
+              <li>🔒 Aim Lock</li>
+              <li>💥 Magic Bullet</li>
+              <li>🚫 No Recoil</li>
+              <li>🎛 Less Recoil</li>
+              <li>🎯 Headshot</li>
+              <li>🎨 Skins</li>
+              <li>📱 iPad View</li>
+              <li>⚡ Speed</li>
+              <li>➕ etc</li>
+          </ol>
+      </div>
+  </div>
 </section>
 
 <hr/>
 <br/>
 
+<a href="https://Wa.me/+923313553052" target="_blank">
+  <img src="./link picture 1.jpg" alt="HACKER420 OFFICIAL" width="20%" title="TAP TO CONTACT 👉 HACKER420" />
+</a>
 
+<hr>
 
-    <a href="https://Wa.me/+923313553052" target="_blank">
-
-        <img src="./link picture 1.jpg" alt="HACKER420 OFFICIAL" width="20%" hight="auto" s title="TAP TO CONTACT 👉 HACKER420" /></a>
-    <hr>
 <!-- Audio Section -->
 <section style="text-align: center; margin: 20px 0;">
-    <h3 id="music">🎶Music</h3>
-    <audio title="MUSIC 🎶" controls autoplay muted style="margin: 10px 0;">
-        <source src="./hacker420.mp3" type="audio/mpeg"/>
-        Your browser does not support the audio tag.
-    </audio>
+  <h3 id="music">🎶Music</h3>
+  <audio title="MUSIC 🎶" controls autoplay muted style="margin: 10px 0;">
+      <source src="./hacker420.mp3" type="audio/mpeg"/>
+      Your browser does not support the audio tag.
+  </audio>
 </section>
+
+<!-- ✅ JS for Hamburger -->
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("show");
+  });
+</script>
+
+</body>
+</html>
